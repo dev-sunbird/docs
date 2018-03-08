@@ -1,15 +1,23 @@
 version: 
 - name: '1.0'
-  alias: '1.0'
   desc: ' '
   release-date: 15th Nov 2017
   sections: 
-  - name: Architecture
-    img: 'img/architecture.png'
-    url: '/architecture'
-  - name: Developer Docs
-    img: 'img/developer-docs.png'
-    url: '/developer-docs'
+  - name: 'Architecture'
+    url: 'architecture'
+    img: 'img/docs_images/architecture.png'
+  - name: 'Developer Docs'
+    url: 'developer-docs'
+    img: 'img/docs_images/developer-docs.png'
+  - name: 'Product Features '
+    url: 'features-documentation'
+    img: 'img/docs_images/product-features.png'
+  - name: 'Sunbird REST APIs '
+    url: 'apis'
+    img: 'img/docs_images/rest-apis.png'
+  - name: 'Frequently asked questions '
+    url: 'faqs'
+    img: 'img/docs_images/faqs.png'
   sidebar:
       - title: Architecture
         url: architecture/
