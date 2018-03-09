@@ -1,4 +1,5 @@
 - name: 'Draft'
+  alias: 'draft'
   desc: ' '
   latest: false
   published: false
