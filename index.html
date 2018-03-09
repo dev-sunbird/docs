@@ -1,0 +1,84 @@
+---
+layout: ingredient
+---
+{% assign paths = page.url | split: '/' %}
+{% assign this_path = paths[2] %}
+{% for version in site.data.versions %}
+	{% if version.latest == true %}
+		{% assign latest_version_alias = version.alias %}
+		{% assign latest_version_name = version.name %}
+	{% endif %}
+	{% if version.alias == this_path %}
+		{% assign this_version_alias = version.alias %}
+		{% assign this_version_name = version.name %}
+		{% assign this_version_branch = version.branch %}
+		{%  if this_version_alias == 'contributions' %}
+			{% assign this_version_alias = latest_version_alias %}
+			{% assign contribution_class = "active" %}
+		{% endif %}
+	{% endif %}
+{% endfor %}
+
+{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+{% assign publishinginfo = site.versions | where:"name", this_version_alias  | first %}
+{% if (publishinginfo) %}
+	{% if (page.allowSearch) %}
+		{% assign meta-index = '<meta name="robots" content="index, follow">' %}
+	{% else %} 
+		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+	{% endif %} 
+{% else %} 
+	{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+{% endif %}
+<!DOCTYPE html>
+<html>
+	
+	<head>
+	{% include head.html %}
+	{{ meta-index }}
+	</head>
+
+  <body>
+	  {% include header.html %}
+    <div class="docspage fill-height inner__content fixed-content">
+			<div class="container main"> 
+				<div class="row row-eq-height">
+					
+					{% for version in site.data.versions %}
+						{% if version.alias == this_version_alias %}
+							<div class="col-xs-12">
+								<h2>Version ({{version.name}})</h2>
+								<p><i><small>Released on {{version.release-date}}</small></i></p>
+								<br />
+							</div>
+							
+							{% for section in version.sections %}
+							<div class="col-sm-6 col-md-4">
+								<div class="img-thumbnail">
+									<a href="docs/{{version.alias}}/{{section.url}}/" class="homepage-section">
+										<img src="{{section.img}}">
+									</a>
+									<div class="caption">
+										<a href="docs/{{version.alias}}/{{version.url}}/" class="homepage-section">
+											<h5 class="homepage-section__title">{{section.name}} <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
+										</a>
+									</div>
+								</div>
+							</div>
+							
+							{% endfor %}
+											
+						{% endif %}
+					{% endfor %}
+					
+					</div>
+				
+				</div>
+			</div>
+		</div>
+
+	{% include footer.html %}
+
+  </body>
+
+</html>
