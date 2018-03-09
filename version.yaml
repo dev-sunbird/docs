@@ -1,0 +1,7 @@
+- name: 'Contributions'
+  branch: 'contributions'
+  alias: 'contributions'
+  desc: ' '
+  latest: false
+  published: true
+  allowIndexing: true
