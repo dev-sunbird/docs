@@ -3,5 +3,5 @@
   alias: 'contributions'
   desc: ' '
   latest: false
-  published: true
+  published: false
   allowIndexing: true
