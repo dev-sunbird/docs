@@ -12,24 +12,20 @@ layout: ingredient
 		{% assign this_version_alias = version.alias %}
 		{% assign this_version_name = version.name %}
 		{% assign this_version_branch = version.branch %}
+		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
+		{% if version.published %}
+			{% if version.allowIndexing  %}
+				{% if page.allowSearch  %}
+					{% assign meta-index = '<meta name="robots" content="index, follow">' %}
+				{% endif %}
+			{% endif %}
+		{% endif %}
 		{%  if this_version_alias == 'contributions' %}
 			{% assign this_version_alias = latest_version_alias %}
 			{% assign contribution_class = "active" %}
 		{% endif %}
 	{% endif %}
 {% endfor %}
-
-{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-{% assign publishinginfo = site.versions | where:"name", this_version_alias  | first %}
-{% if (publishinginfo) %}
-	{% if (page.allowSearch) %}
-		{% assign meta-index = '<meta name="robots" content="index, follow">' %}
-	{% else %} 
-		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-	{% endif %} 
-{% else %} 
-	{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-{% endif %}
 <!DOCTYPE html>
 <html>
 	
