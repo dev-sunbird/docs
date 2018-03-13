@@ -1,6 +1,5 @@
 - name: 'Contributions'
   branch: 'contributions'
-  alias: 'contributions'
   desc: ' '
   latest: false
   published: false
