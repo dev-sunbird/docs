@@ -29,8 +29,7 @@ jobs:
           ls
           cd _site
           pwd
-          ls
-          cd _site/  
+          ls 
           aws s3 sync --delete --quiet . s3://sunbird-trial/pr/$CIRCLE_PR_NUMBER
           prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/issues/$CIRCLE_PR_NUMBER)
           username=$(echo "${prdata}" | jq '.user.login')
