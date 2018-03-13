@@ -12,7 +12,9 @@ jobs:
       # Run Build command
       - type: shell
         command: |
+          ls
           cd ..
+          ls
           git clone git@github.com:dev-sunbird/dev-sunbird.github.io.git site
           cd site
           chmod +x process.sh
