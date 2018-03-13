@@ -1,6 +1,5 @@
 - name: 'Draft'
   branch: 'master'
-  alias: 'draft'
   desc: ' '
   latest: false
   published: false
