@@ -1,5 +1,5 @@
-- name: 'Draft'
-  branch: 'master'
+- name: '1.0'
+  branch: '1.0'
   desc: ' '
   latest: false
   published: false
