@@ -15,13 +15,20 @@ jobs:
         command: |
           branchdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER)
           branchname=$(echo "${branchdata}" | jq '.base.href')
+          echo $branchname
           cd ..
           git clone git@github.com:dev-sunbird/dev-sunbird.github.io.git site
           cd site
           chmod +x fetch.sh
           ./fetch.sh
+          pwd
+          cd ..
+          pwd
+          ls
           rm -rf docs/$branchname
+          ls
           mkdir docs/$branchname
+          ls
           cp -a ../prdata/. docs/$branchname
           chmod +x version.sh
           ./version.sh
