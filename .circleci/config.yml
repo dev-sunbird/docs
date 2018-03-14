@@ -22,14 +22,12 @@ jobs:
           chmod +x fetch.sh
           ./fetch.sh
           pwd
-          cd .. 
-          pwd
-          ls
           rm -rf docs/$branchname
           ls
           mkdir docs/$branchname
           ls
           cp -a ../prdata/. docs/$branchname
+          rm -rf docs/$branchname/.git
           chmod +x version.sh
           ./version.sh
           echo "baseurl: /pr/$CIRCLE_PR_NUMBER"/ >> _config.yml
