@@ -23,9 +23,7 @@ jobs:
           ./fetch.sh
           pwd
           rm -rf docs/$branchname
-          ls
           mkdir docs/$branchname
-          ls
           cp -a ../prdata/. docs/$branchname
           rm -rf docs/$branchname/.git
           chmod +x version.sh
