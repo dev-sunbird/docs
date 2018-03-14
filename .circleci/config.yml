@@ -23,7 +23,7 @@ jobs:
           chmod +x fetch.sh
           ./fetch.sh
           pwd
-          cd ..
+          cd .. 
           pwd
           ls
           rm -rf docs/$branchname
