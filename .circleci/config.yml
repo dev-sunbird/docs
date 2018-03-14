@@ -15,7 +15,8 @@ jobs:
         command: |
           branchdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER)
           branchname=$(echo "${branchdata}" | jq '.base.href')
-          echo $branchname
+          echo "Branch Data is " $branchdata
+          echo "Branch Name is " $branchname
           cd ..
           git clone git@github.com:dev-sunbird/dev-sunbird.github.io.git site
           cd site
