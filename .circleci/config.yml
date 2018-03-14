@@ -1,7 +1,7 @@
 version: 2
 jobs:
-  review:
-    working_directory: /project/workplace/
+  pr:
+    working_directory: /project/prdata/
     docker:
       - image: lakhanmandloi/docker-ubuntu-ruby-python-npm
     steps:
@@ -13,25 +13,27 @@ jobs:
       - type: shell
         name: Build Commands
         command: |
-          pwd
+          branchdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER)
+          branchname=$(echo "${branchdata}" | jq '.head.ref')
+          echo "Branch Name is " $branchname
           cd ..
-          pwd
           git clone git@github.com:dev-sunbird/dev-sunbird.github.io.git site
-          ls
           cd site
-          chmod +x process.sh
-          ./process.sh
+          chmod +x fetch.sh
+          ./fetch.sh
+          pwd
+          rm -rf docs/$branchname
+          mkdir docs/$branchname
+          cp -a ../prdata/. docs/$branchname
+          rm -rf docs/$branchname/.git
+          chmod +x version.sh
+          ./version.sh
           echo "baseurl: /pr/$CIRCLE_PR_NUMBER"/ >> _config.yml
           echo "buildVersion: PR - $CIRCLE_PR_NUMBER" >> _config.yml
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           bundle exec jekyll build
-          pwd
-          ls
           cd _site
-          pwd
-          ls
-          aws configure  
-          aws s3 sync --delete --quiet _site/. s3://sunbird-trial/pr/$CIRCLE_PR_NUMBER
+          aws s3 sync --delete --quiet . s3://sunbird-trial/pr/$CIRCLE_PR_NUMBER
           prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/issues/$CIRCLE_PR_NUMBER)
           username=$(echo "${prdata}" | jq '.user.login')
           contributor=${username//\"/} 
@@ -67,4 +69,4 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - review
+      - pr
