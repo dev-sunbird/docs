@@ -13,8 +13,11 @@ jobs:
       - type: shell
         name: Build Commands
         command: |
+          ls
+          rm -rf site/
           branchdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER)
           branchname=$(echo "${branchdata}" | jq '.head.ref')
+          branchname=${branchname//\"/}
           echo "Branch Name is " $branchname
           cd ..
           git clone git@github.com:dev-sunbird/dev-sunbird.github.io.git site
