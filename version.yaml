@@ -1,10 +1,4 @@
-- name: 'Draft'
-  branch: 'master'
   desc: ' '
-  latest: false
-  published: false
-  allowIndexing: false
-  release-date: 15th Nov 2017
   sections: 
   - name: 'Architecture'
     url: 'architecture'
