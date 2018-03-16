@@ -81,7 +81,7 @@ jobs:
             
             if [[ "$file" == version.yaml ]]
             then
-            url='- http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/'$branchname'/ <br/> -http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/ <br/>  - Sidebar on Docs Pages'
+            url='- http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/'$branchname'/ <br/> - http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/ <br/>  - Sidebar on Docs Pages'
             updatedsectionslist=$updatedsectionslist$url
             fi
             
