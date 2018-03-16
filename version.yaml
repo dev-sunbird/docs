@@ -1,5 +1,5 @@
   sections: 
-  - name: 'Architecture'
+  - name: 'Architecture from Fork'
     url: 'architecture'
     img: 'img/docs_images/architecture.png'
   - name: 'Developer Docs'
@@ -15,7 +15,7 @@
     url: 'faqs'
     img: 'img/docs_images/faqs.png'
   sidebar:
-      - title: Architecture
+      - title: Architecture from fork
         url: architecture/
         subfolderitems:
           - page: Overview
