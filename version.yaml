@@ -1,5 +1,5 @@
   sections: 
-  - name: 'Architecture from Fork'
+  - name: 'Architecture'
     url: 'architecture'
     img: 'img/docs_images/architecture.png'
   - name: 'Developer Docs'
