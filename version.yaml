@@ -15,7 +15,7 @@
     url: 'faqs'
     img: 'img/docs_images/faqs.png'
   sidebar:
-      - title: Architecture from fork
+      - title: Architecture
         url: architecture/
         subfolderitems:
           - page: Overview
