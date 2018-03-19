@@ -8,32 +8,8 @@ keywords: Architecture Overview
 published: true
 allowSearch: true
 ---
-<div id="preview"></div>
-<div id="preview1"></div>
-<script>
-
-		$(document).ready(function(){
-			var animData = {
-				wrapper: document.getElementById('preview'),
-				animType: 'svg',
-				loop: true,
-				prerender: true,
-				autoplay: true,
-				path: "data.json"
-			};
-			var anim = bodymovin.loadAnimation(animData);
-			var animData1 = {
-				wrapper: document.getElementById('preview1'),
-				animType: 'svg',
-				loop: true,
-				prerender: true,
-				autoplay: true,
-				path: "data1.json"
-			};
-			var anim = bodymovin.loadAnimation(animData1);
-		});
-	
-</script>
+{% animation path="architecture/data1.json" id="preview1" %}
+{% animation path="architecture/data2.json" id="preview2" %}
 
 Sunbird is a next-generation, societal learning platform built for cloud/mobile native environments and meant to address teaching and learning use cases.It is architected to enhance on scalibility and extensibility.Multiple organizations can exist independently as tenants on the platform and users of these organizations can access the platform via mobile devices, tablets, laptops and desktops.
 
