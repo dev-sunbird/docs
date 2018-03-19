@@ -29,7 +29,7 @@ Follow the steps to add, import and create the keycloak realm:
         1. Click on Add realm Button
         </td>
             <td>
-            <img src="img/developer-docs/installation/images/keycloack-add-realm.png">
+            <img src="pages/developer-docs/installation/images/keycloack-add-realm.png">
             </td>
 </tr>
 <tr>
@@ -40,14 +40,14 @@ Follow the steps to add, import and create the keycloak realm:
 2. Write the appropriate name <br>
         </td>
             <td>
-            <img src="img/developer-docs/installation/images/keycloak-choose-json.png">
+            <img src="pages/developer-docs/installation/images/keycloak-choose-json.png">
             </td>
 </tr>
 <tr>
         <td> 1. Click on Create button
         </td>
             <td>
-            <img src="img/developer-docs/installation/images/keycloak-import-realm-create.png">
+            <img src="pages/developer-docs/installation/images/keycloak-import-realm-create.png">
             </td>
 </tr>
 </table>

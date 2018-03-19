@@ -28,7 +28,7 @@ A Library typically refers to a place or a space, housing a large collection of 
          <li>Click on the <strong>Library</strong> tab</li>
         </ol>
      </td>
-    <td><img src="img/features-documentation/images/library_prerequisite.png"></td>
+    <td><img src="pages/features-documentation/images/library_prerequisite.png"></td>
   </tr>
   </table>
        
@@ -60,7 +60,7 @@ A Library typically refers to a place or a space, housing a large collection of 
          </li>
         </ol>
      </td>
-    <td><img src="img/features-documentation/images/library_search.png"></td>
+    <td><img src="pages/features-documentation/images/library_search.png"></td>
   </tr>
   </table>
    
@@ -92,7 +92,7 @@ A Library typically refers to a place or a space, housing a large collection of 
          </li>
         </ol>
      </td>
-    <td><img src="img/features-documentation/images/library_filter.png"></td>
+    <td><img src="pages/features-documentation/images/library_filter.png"></td>
   </tr>
   </table>
    
@@ -110,7 +110,7 @@ A Library typically refers to a place or a space, housing a large collection of 
 	       <li>Sort content based on latest <strong>Modified</strong> or <strong>Created</strong></li>
 	   </ol>
     </td>
-	<td><img src="img/features-documentation/images/library_sort.png"></td>
+	<td><img src="pages/features-documentation/images/library_sort.png"></td>
     </tr>
     </table>
 
@@ -138,7 +138,7 @@ Popular stories are listed here. The different story types displayed are:
 	       <li>Click right or left <strong>Scroll bar</strong> to scroll</li>
 	   </ol>
    </td>
-  <td><img src="img/features-documentation/images/library_popularstory.png"></td>
+  <td><img src="pages/features-documentation/images/library_popularstory.png"></td>
   </tr>
   </table>
 
@@ -155,7 +155,7 @@ Popular stories are listed here. The different story types displayed are:
 		   <li>Click on the story you wish to consume. The story is displayed on the inbuilt content player. Description and content information of the story are provided below the player</li>
 	   </ul>
 	</td>
-	<td><img src="img/features-documentation/images/library_desc_cont_inf.png"></td>
+	<td><img src="pages/features-documentation/images/library_desc_cont_inf.png"></td>
 	</tr>
 	</table>
 
@@ -172,7 +172,7 @@ Popular stories are listed here. The different story types displayed are:
 	       <li>Click on the <strong>Share</strong> icon to share the story</li>
 	</ol>
    </td>
-  <td><img src="img/features-documentation/images/library_shareicon.png"></td>
+  <td><img src="pages/features-documentation/images/library_shareicon.png"></td>
   </tr>
   <tr>
   <td>
@@ -182,7 +182,7 @@ Popular stories are listed here. The different story types displayed are:
 	       <li>Click <strong>Close</strong> icon to go back to the content player</li>
 	</ol>
    </td>
-  <td><img src="img/features-documentation/images/library_copylink.png"></td>
+  <td><img src="pages/features-documentation/images/library_copylink.png"></td>
   </tr>
   </table>
   
@@ -199,7 +199,7 @@ Popular stories are listed here. The different story types displayed are:
 		<li>Click <strong>Flag</strong> icon to flag the displayed content</li>
 	    </ol>
 	</td>
-	<td><img src="img/features-documentation/images/library_flagicon.png"></td>
+	<td><img src="pages/features-documentation/images/library_flagicon.png"></td>
 	</tr>
 	<tr>
 	<td>
@@ -210,7 +210,7 @@ Popular stories are listed here. The different story types displayed are:
 		<li>Click <strong>Close</strong> icon to exit the page</li>
 	   </ol>
     </td>
- <td><img src="img/features-documentation/images/library_flagreason.png"></td>
+ <td><img src="pages/features-documentation/images/library_flagreason.png"></td>
   </tr>
   </table>
   
@@ -227,7 +227,7 @@ Popular stories are listed here. The different story types displayed are:
 		  <li>Click <strong>TAKE NOTE</strong> icon or link to take notes while viewing the story</li>
 	    </ol>
 	</td>
-	<td><img src="img/features-documentation/images/library_takenote.png"></td>
+	<td><img src="pages/features-documentation/images/library_takenote.png"></td>
 	  </tr>
 	   <tr>
 	<td>
@@ -240,7 +240,7 @@ Popular stories are listed here. The different story types displayed are:
 			<li>Click <strong>Close</strong> icon to exit the page</li>
 	        </ol>
 	</td>
-	<td><img src="img/features-documentation/images/library_notescreen.png"></td>
+	<td><img src="pages/features-documentation/images/library_notescreen.png"></td>
 	</tr>
   </table>
 

@@ -12,7 +12,7 @@ allowSearch: true
 
 The views of Sunbird architecture are classified as: 
 
-- {% link href="architecture/views/logical"  relative blank title="Logical"   %}
-- {% link href="architecture/views/physical"  relative blank title="Physical"   %}
-- {% link href="architecture/views/conceptual"  relative blank title="Conceptual"   %}
-- {% link href="architecture/views/deployment"  relative blank title="Deployment"   %}
+- [Logical](architecture/views/logical)
+- [Physical](architecture/views/physical)
+- [Conceptual](architecture/views/conceptual)
+- [Deployment](architecture/views/deployment)
