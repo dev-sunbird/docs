@@ -9,6 +9,7 @@ published: true
 allowSearch: true
 ---
 <div id="preview"></div>
+<div id="preview1"></div>
 <script>
 
 		$(document).ready(function(){
@@ -21,6 +22,15 @@ allowSearch: true
 				path: "data.json"
 			};
 			var anim = bodymovin.loadAnimation(animData);
+			var animData1 = {
+				wrapper: document.getElementById('preview1'),
+				animType: 'svg',
+				loop: true,
+				prerender: true,
+				autoplay: true,
+				path: "data1.json"
+			};
+			var anim = bodymovin.loadAnimation(animData1);
 		});
 	
 </script>
