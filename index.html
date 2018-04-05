@@ -1,79 +1,52 @@
 ---
 layout: ingredient
 ---
-{% assign paths = page.url | split: '/' %}
-{% assign this_path = paths[2] %}
-{% for version in site.data.versions %}
-	{% if version.latest == true %}
-		{% assign latest_version_branch = version.branch %}
-		{% assign latest_version_name = version.name %}
-	{% endif %}
-	{% if version.branch == this_path %}
-		{% assign this_version_branch = version.branch %}
-		{% assign this_version_name = version.name %}
-		{% assign meta-index = '<meta name="robots" content="noindex, nofollow">' %}
-		{% if version.published %}
-			{% if version.allowIndexing  %}
-				{% if page.allowSearch  %}
-					{% assign meta-index = '<meta name="robots" content="index, follow">' %}
-				{% endif %}
-			{% endif %}
-		{% endif %}
-		{%  if this_version_branch == 'contributions' %}
-			{% assign this_version_branch = latest_version_branch %}
-			{% assign contribution_class = "active" %}
-		{% endif %}
-	{% endif %}
-{% endfor %}
+{% include definations.html %}
 <!DOCTYPE html>
 <html>
 	
-	<head>
+<head>
 	{% include head.html %}
 	{{ meta-index }}
-	</head>
+</head>
 
-  <body>
-	  {% include header.html %}
-    <div class="docspage fill-height inner__content fixed-content">
-			<div class="container main"> 
-				<div class="row row-eq-height">
-					
-					{% for version in site.data.versions %}
-						{% if version.branch == this_version_branch %}
-							<div class="col-xs-12">
-								<h2>Version ({{version.name}})</h2>
-								<p><i><small>Released on {{version.release-date}}</small></i></p>
-								<br />
-							</div>
+<body>
+	
+	{% include header.html %}
+	
+	<div class="docspage fill-height inner__content fixed-content">
+		<div class="container main"> 
+			<div class="row row-eq-height">
+				{% for version in site.data.versions %}
+					{% if version.branch == this_version_branch %}
+						<div class="col-xs-12">
+							<h2>Version ({{version.name}})</h2>
+							<p><i><small>Released on {{version.release-date}}</small></i></p>
+							<br/>
+						</div>
 							
-							{% for section in version.sections %}
+						{% for section in version.sections %}
 							<div class="col-sm-6 col-md-4">
 								<div class="img-thumbnail">
-									<a href="docs/{{version.branch}}/{{section.url}}/" class="homepage-section">
+									<a href="/docs/{{version.branch}}/{{section.url}}/" class="homepage-section">
 										<img src="{{section.img}}">
 									</a>
 									<div class="caption">
-										<a href="docs/{{version.branch}}/{{version.url}}/" class="homepage-section">
+										<a href="/docs/{{version.branch}}/{{version.url}}/" class="homepage-section">
 											<h5 class="homepage-section__title">{{section.name}} <i class="fa fa-long-arrow-right pull-right" aria-hidden="true"></i></h5>
 										</a>
 									</div>
 								</div>
 							</div>
-							
-							{% endfor %}
+						{% endfor %}
 											
-						{% endif %}
-					{% endfor %}
-					
-					</div>
-				
-				</div>
+					{% endif %}
+				{% endfor %}
 			</div>
 		</div>
-
+	</div>
+	
 	{% include footer.html %}
-
+	
   </body>
-
 </html>
