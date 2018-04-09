@@ -183,7 +183,7 @@
       - title: Frequently asked questions
         url: faqs/
         subfolderitems:
-          - page: Audience
+          - page: Audience 
             url: faqs/audience/
           - page: Content Format
             url: faqs/content_format/
