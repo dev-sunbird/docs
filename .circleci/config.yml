@@ -8,17 +8,21 @@ jobs:
     
       #Checkout
       - checkout
-            
+      
       # Run Build command
       - type: shell
         name: Build Commands
         command: |
+          # Check if build is triggered by PR or commit by checking $CIRCLE_PR_NUMBER is set. 
           if [[ -z "$CIRCLE_PR_NUMBER" ]]
           then
+          # If PR no. is not set then trigger Site's Review build and exit
           curl -u $cuser: -d build_parameters[CIRCLE_JOB]=review https://circleci.com/api/v1.1/project/github/dev-sunbird/dev-sunbird.github.io/tree/dev
           else
-          branchdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER)
-          branchname=$(echo "${branchdata}" | jq '.base.ref')
+          # Fetch PR Data
+          prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER)
+          # Fetch Branch Name on which PR is sent.
+          branchname=$(echo "${prdata}" | jq '.base.ref')
           branchname=${branchname//\"/}
           echo "Branch Name is " $branchname
           rm -rf site/
@@ -33,13 +37,11 @@ jobs:
           rm -rf docs/$branchname/.git
           chmod +x version.sh
           ./version.sh
-          echo "baseurl: /pr/$CIRCLE_PR_NUMBER"/ >> _config.yml
-          echo "buildVersion: PR - $CIRCLE_PR_NUMBER" >> _config.yml
+          echo "buildVersion: Docs PR - $CIRCLE_PR_NUMBER" >> _config.yml
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
           bundle exec jekyll build
           cd _site
-          aws s3 sync --delete --quiet . s3://sunbird-trial/pr/$CIRCLE_PR_NUMBER
-          prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/issues/$CIRCLE_PR_NUMBER)
+          aws s3 sync --delete --quiet . s3://sunbird-trial/docs-pr/$CIRCLE_PR_NUMBER
           username=$(echo "${prdata}" | jq '.user.login')
           contributor=${username//\"/} 
           updatedfiles=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER/files) 
@@ -58,7 +60,7 @@ jobs:
             then
             filedocs=${file//\.md/}
             filedocs=${filedocs//index/}
-            url='- http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/'$branchname'/'$filedocs' <br /> '
+            url='- http://pr-'$CIRCLE_PR_NUMBER'.qadocs.sunbird.org/docs/'$branchname'/'$filedocs' <br /> '
             updatedfileslist=$updatedfileslist$url
             echo $url
             fi
@@ -68,7 +70,7 @@ jobs:
             filelastsegment=${file##*/}
             echo $filelastsegment
             fileapi=${filelastsegment//.yaml/}
-            url='- http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/'$branchname'/apis/specs/?api='$fileapi' <br /> '
+            url='- http://pr-'$CIRCLE_PR_NUMBER'.qadocs.sunbird.org/docs/'$branchname'/apis/specs/?api='$fileapi' <br /> '
             updatedfileslist=$updatedfileslist$url
             echo $url
             fi
@@ -78,14 +80,14 @@ jobs:
             filedocs=${file//\.html/}
             filedocs=${filedocs//index/}
             echo $filelastsegment
-            url='- http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/'$branchname'/apis/specs/ <br /> '
+            url='- http://pr-'$CIRCLE_PR_NUMBER'.qadocs.sunbird.org/docs/'$branchname'/apis/specs/ <br /> '
             updatedfileslist=$updatedfileslist$url
             echo $url
             fi
             
             if [[ "$file" == version.yaml ]]
             then
-            url='- http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/'$branchname'/ <br/> - http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'$CIRCLE_PR_NUMBER'/docs/ <br/>  - Sidebar on Docs Pages'
+            url='- Sidebar on Docs Pages'
             updatedsectionslist=$updatedsectionslist$url
             fi
             
@@ -93,7 +95,7 @@ jobs:
           curl \
              -X POST \
              -u $guser:x-oauth-basic \
-             -d '{"body": "Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - http://sunbird-trial.s3-website.ap-south-1.amazonaws.com/pr/'"$CIRCLE_PR_NUMBER"'. <br/><br/> **Modified pages are -** <br />'"$updatedfileslist"' <br/> **Modified sections are -** <br />'"$updatedsectionslist"' "}' \
+             -d '{"body": "Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - http://pr-'"$CIRCLE_PR_NUMBER".qadocs.sunbird.org . <br/><br/> **Modified pages are -** <br />'"$updatedfileslist"' <br/> **Modified sections are -** <br />'"$updatedsectionslist"' "}' \
               https://api.github.com/repos/dev-sunbird/docs/issues/$CIRCLE_PR_NUMBER/comments
           fi
 workflows:
