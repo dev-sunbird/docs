@@ -95,7 +95,7 @@ jobs:
           curl \
              -X POST \
              -u $guser:x-oauth-basic \
-             -d '{"body": "Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - http://pr-'"$CIRCLE_PR_NUMBER".qadocs.sunbird.org . <br/><br/> **Modified pages are -** <br />'"$updatedfileslist"' <br/> **Modified sections are -** <br />'"$updatedsectionslist"' "}' \
+             -d '{"body": "Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - http://pr-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org . <br/><br/> **Modified pages are -** <br />'"$updatedfileslist"' <br/> **Modified sections are -** <br />'"$updatedsectionslist"' "}' \
               https://api.github.com/repos/dev-sunbird/docs/issues/$CIRCLE_PR_NUMBER/comments
           fi
 workflows:
