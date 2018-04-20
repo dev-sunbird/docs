@@ -89,8 +89,8 @@ For a comprehensive walk through to install Sunbird on your workstation, refer t
 
 ## Server Installation
 
-Please refer to the [Server Installation Steps](http://www.sunbird.org/developer-docs/installation/medium_scale_deploy/){:target="_blank"} if you want to host sunbird on your servers. Sunbird supports various deployment topologies and it can scale for thousands of users. 
+Please refer to the [Server Installation Steps](./installation/medium_scale_deploy/){:target="_blank"} if you want to host sunbird on your servers. Sunbird supports various deployment topologies and it can scale for thousands of users. 
 
 ## Mobile App Installation
 
-To create a customized Sunbird mobile application for your hosted Sunbird, refer to [Mobile App Setup](http://www.sunbird.org/developer-docs/installation/install_mobile_setup){:target="_blank"}
+To create a customized Sunbird mobile application for your hosted Sunbird, refer to [Mobile App Setup](./installation/install_mobile_setup){:target="_blank"}
