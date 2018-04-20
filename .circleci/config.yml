@@ -14,13 +14,13 @@ jobs:
         name: Build Commands
         command: |
           # Set Variables 
-          repo-site="dev-sunbird/dev-sunbird.github.io"
-          repo-docs="dev-sunbird/docs"
-          qa-url="qadocs.sunbird.org"
-          s3-bucket="sunbird-trial"
-          s3-endpoint=".s3-website.ap-south-1.amazonaws.com"
-          subdomain-prefix-docs="pr-docs"
-          subdomain-prefix-site="pr-site"
+          export repo-site="dev-sunbird/dev-sunbird.github.io"
+          export repo-docs="dev-sunbird/docs"
+          export qa-url="qadocs.sunbird.org"
+          export s3-bucket="sunbird-trial"
+          export s3-endpoint=".s3-website.ap-south-1.amazonaws.com"
+          export subdomain-prefix-docs="pr-docs"
+          export subdomain-prefix-site="pr-site"
           
           # Check if build is triggered by PR or commit by checking $CIRCLE_PR_NUMBER is set. 
           if [[ -z "$CIRCLE_PR_NUMBER" ]]
