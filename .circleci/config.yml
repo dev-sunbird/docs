@@ -74,7 +74,7 @@ jobs:
             {
              echo ${row} | base64 --decode | jq -r ${1}
             }
-            file=$(_jq '.fileName')
+            file=$(_jq '.filename')
             echo $file
             
             # Make pages from all folders with extension md file except ingredients
@@ -129,7 +129,7 @@ jobs:
           curl \
              -X POST \
              -u $guser:x-oauth-basic \
-             -d '{"body": $prCommentData }' \
+             -d '{"body": "$prCommentData" }' \
               https://api.github.com/repos/$repoDocs/issues/$CIRCLE_PR_NUMBER/comments
           fi
 workflows:
