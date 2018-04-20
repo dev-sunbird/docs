@@ -67,7 +67,7 @@ jobs:
           updatedFilesList=''
           updatedSectionsList=''
           # Site URL
-          siteUrl="http://"$subdomainPrefixDocs"-"$CIRCLE_PR_NUMBER"."$qaUrl
+          siteUrl=$subdomainPrefixDocs"-"$CIRCLE_PR_NUMBER"."$qaUrl
           for row in $(echo "${updatedFiles}" | jq -r '.[] | @base64')
            do  
             _jq() 
@@ -83,7 +83,7 @@ jobs:
             # Remove .md and index from filename 
             fileDocs=${file//\.md/}
             fileDocs=${fileDocs//index/}
-            url='- '$siteUrl'./docs/'$branchName'/'$fileDocs' <br /> '
+            url='- '$siteUrl'/docs/'$branchName'/'$fileDocs' <br /> '
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
