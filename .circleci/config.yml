@@ -13,40 +13,61 @@ jobs:
       - type: shell
         name: Build Commands
         command: |
+          # Set Variables 
+          repo-site="dev-sunbird/dev-sunbird.github.io"
+          repo-docs="dev-sunbird/docs"
+          qa-url="qadocs.sunbird.org"
+          s3-bucket="sunbird-trial"
+          s3-endpoint=".s3-website.ap-south-1.amazonaws.com"
+          subdomain-prefix-docs="pr-docs"
+          subdomain-prefix-site="pr-site"
+          
           # Check if build is triggered by PR or commit by checking $CIRCLE_PR_NUMBER is set. 
           if [[ -z "$CIRCLE_PR_NUMBER" ]]
           then
           # If PR no. is not set then trigger Site's Review build and exit
-          curl -u $cuser: -d build_parameters[CIRCLE_JOB]=review https://circleci.com/api/v1.1/project/github/dev-sunbird/dev-sunbird.github.io/tree/dev
+          curl -u $cuser: -d build_parameters[CIRCLE_JOB]=review https://circleci.com/api/v1.1/project/github/$repo-site/tree/dev
           else
           # Fetch PR Data
-          prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER)
+          prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repo-docs/pulls/$CIRCLE_PR_NUMBER)
           # Fetch Branch Name on which PR is sent.
           branchname=$(echo "${prdata}" | jq '.base.ref')
           branchname=${branchname//\"/}
           echo "Branch Name is " $branchname
           rm -rf site/
           cd ..
-          git clone git@github.com:dev-sunbird/dev-sunbird.github.io.git site
+          # Clone Site Code
+          git clone git@github.com:$repo-site.git site
           cd site
+          # Fetch All braches / versions from docs repo
           chmod +x fetch.sh
           ./fetch.sh
+          # Replace pr-sent-branch folder with the pr-sent-data
           rm -rf docs/$branchname
           mkdir docs/$branchname
           cp -a ../prdata/. docs/$branchname
           rm -rf docs/$branchname/.git
+          # Merge Versions Info Yaml file
           chmod +x version.sh
           ./version.sh
+          # Add Build info in site config
           echo "buildVersion: Docs PR - $CIRCLE_PR_NUMBER" >> _config.yml
           echo "buildNo: $CIRCLE_BUILD_NUM" >> _config.yml
+          # Build site
           bundle exec jekyll build
           cd _site
-          aws s3 sync --delete --quiet . s3://sunbird-trial/docs-pr/$CIRCLE_PR_NUMBER
+          # Push generated site to s3-bucket
+          aws s3 sync --delete --quiet . s3://$s3-bucket/pr-docs/$CIRCLE_PR_NUMBER
+          # Add comment in pr - details about generated site url and modified pages
           username=$(echo "${prdata}" | jq '.user.login')
           contributor=${username//\"/} 
-          updatedfiles=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/dev-sunbird/docs/pulls/$CIRCLE_PR_NUMBER/files) 
+          # Get updated files list from pr api
+          updatedfiles=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repo-docs/pulls/$CIRCLE_PR_NUMBER/files)
+          # Initilize blank variables
           updatedfileslist=''
           updatedsectionslist=''
+          # Site URL
+          site-url="http://"$subdomain-prefix-docs"-"$CIRCLE_PR_NUMBER"."$qa-url
           for row in $(echo "${updatedfiles}" | jq -r '.[] | @base64')
            do  
             _jq() 
@@ -56,21 +77,24 @@ jobs:
             file=$(_jq '.filename')
             echo $file
             
+            # Make pages from all folders with extension md file except ingredients
             if [[ "$file" != ingredients/* ]] && [[ "$file" == *.md ]]
             then
+            # Remove .md and index from filename 
             filedocs=${file//\.md/}
             filedocs=${filedocs//index/}
-            url='- http://pr-'$CIRCLE_PR_NUMBER'.qadocs.sunbird.org/docs/'$branchname'/'$filedocs' <br /> '
+            url='- '$site-url'./docs/'$branchname'/'$filedocs' <br /> '
             updatedfileslist=$updatedfileslist$url
             echo $url
             fi
             
+            # If API Swagger specification is modified
             if [[ "$file" == apis/* ]] && [[ "$file" == *.yaml ]]
             then
             filelastsegment=${file##*/}
             echo $filelastsegment
             fileapi=${filelastsegment//.yaml/}
-            url='- http://pr-'$CIRCLE_PR_NUMBER'.qadocs.sunbird.org/docs/'$branchname'/apis/specs/?api='$fileapi' <br /> '
+            url='- '$site-url'/docs/'$branchname'/apis/specs/?api='$fileapi' <br /> '
             updatedfileslist=$updatedfileslist$url
             echo $url
             fi
@@ -80,23 +104,33 @@ jobs:
             filedocs=${file//\.html/}
             filedocs=${filedocs//index/}
             echo $filelastsegment
-            url='- http://pr-'$CIRCLE_PR_NUMBER'.qadocs.sunbird.org/docs/'$branchname'/apis/specs/ <br /> '
+            url='- '$site-url'/docs/'$branchname'/apis/specs/ <br /> '
             updatedfileslist=$updatedfileslist$url
             echo $url
             fi
             
+            # If Sidebar is updated
             if [[ "$file" == version.yaml ]]
             then
             url='- Sidebar on Docs Pages'
             updatedsectionslist=$updatedsectionslist$url
             fi
             
-           done 
+          done 
+          
+          # PR Comment Data
+          
+          prcommentdata = "Hello @'"$contributor"',<br/><br/> \
+          _This is a auto-generated response._ <br/><br/> \
+          Click the URL for review pull request - <a href='"$site-url"' target='_blank'>'"$site-url"'</a>. <br/><br/> \
+          **Modified pages are -** <br /><a href='"$updatedfileslist"' target='_blank'>'"$updatedfileslist"'</a> <br/> \
+          **Modified sections are -** <br /><a href='"$updatedsectionslist"' target='_blank'>'"$updatedsectionslist"'</a> "
+          
           curl \
              -X POST \
              -u $guser:x-oauth-basic \
-             -d '{"body": "Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - http://pr-'"$CIRCLE_PR_NUMBER"'.qadocs.sunbird.org . <br/><br/> **Modified pages are -** <br />'"$updatedfileslist"' <br/> **Modified sections are -** <br />'"$updatedsectionslist"' "}' \
-              https://api.github.com/repos/dev-sunbird/docs/issues/$CIRCLE_PR_NUMBER/comments
+             -d '{"body": "$prcommentdata" }' \
+              https://api.github.com/repos/$repo-docs/issues/$CIRCLE_PR_NUMBER/comments
           fi
 workflows:
   version: 2
