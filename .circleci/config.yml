@@ -83,7 +83,7 @@ jobs:
             # Remove .md and index from filename 
             fileDocs=${file//\.md/}
             fileDocs=${fileDocs//index/}
-            url=" - "$siteUrl"/docs/"$branchName"/"$fileDocs" <br />"
+            url=" - http://"$siteUrl"/docs/"$branchName"/"$fileDocs" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
@@ -94,7 +94,7 @@ jobs:
             fileLastSegment=${file##*/}
             echo $fileLastSegment
             fileApi=${fileLastSegment//.yaml/}
-            url=" - "$siteUrl"/docs/"$branchName"/apis/specs/?api="$fileApi" <br />"
+            url=" - http://"$siteUrl"/docs/"$branchName"/apis/specs/?api="$fileApi" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
@@ -104,7 +104,7 @@ jobs:
             fileDocs=${file//\.html/}
             fileDocs=${fileDocs//index/}
             echo $fileLastSegment
-            url=" - "$siteUrl"/docs/"$branchName"/apis/specs/ <br />"
+            url=" - http://"$siteUrl"/docs/"$branchName"/apis/specs/ <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
@@ -112,7 +112,7 @@ jobs:
             # If Sidebar is updated
             if [[ "$file" == version.yaml ]]
             then
-            block="- Sidebar on Docs Pages"
+            block=" - Sidebar on Docs Pages"
             updatedSectionsList=$updatedSectionsList$block
             fi
             
