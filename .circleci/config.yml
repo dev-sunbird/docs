@@ -67,7 +67,7 @@ jobs:
           updatedFilesList=''
           updatedSectionsList=''
           # Site URL
-          siteUrl=$subdomainPrefixDocs"-"$CIRCLE_PR_NUMBER"."$qaUrl
+          siteUrl='http://'$subdomainPrefixDocs"-"$CIRCLE_PR_NUMBER"."$qaUrl
           for row in $(echo "${updatedFiles}" | jq -r '.[] | @base64')
            do  
             _jq() 
@@ -83,7 +83,7 @@ jobs:
             # Remove .md and index from filename 
             fileDocs=${file//\.md/}
             fileDocs=${fileDocs//index/}
-            url=" - http://"$siteUrl"/docs/"$branchName"/"$fileDocs" <br />"
+            url=" - "$siteUrl"/docs/"$branchName"/"$fileDocs" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
@@ -94,7 +94,7 @@ jobs:
             fileLastSegment=${file##*/}
             echo $fileLastSegment
             fileApi=${fileLastSegment//.yaml/}
-            url=" - http://"$siteUrl"/docs/"$branchName"/apis/specs/?api="$fileApi" <br />"
+            url=" - "$siteUrl"/docs/"$branchName"/apis/specs/?api="$fileApi" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
@@ -104,7 +104,7 @@ jobs:
             fileDocs=${file//\.html/}
             fileDocs=${fileDocs//index/}
             echo $fileLastSegment
-            url=" - http://"$siteUrl"/docs/"$branchName"/apis/specs/ <br />"
+            url=" - "$siteUrl"/docs/"$branchName"/apis/specs/ <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
