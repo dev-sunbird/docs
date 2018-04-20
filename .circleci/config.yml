@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  pr:
+  docs-pr:
     working_directory: /project/prdata/
     docker:
       - image: lakhanmandloi/docker-ubuntu-ruby-python-npm
@@ -144,4 +144,4 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - pr
+      - docs-pr
