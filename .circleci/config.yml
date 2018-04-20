@@ -120,11 +120,7 @@ jobs:
           
           # PR Comment Data
           
-          prCommentData = "Hello @'"$contributor"',<br/><br/> \
-          _This is a auto-generated response._ <br/><br/> \
-          Click the URL for review pull request - <a href='"$siteUrl"' target='_blank'>'"$siteUrl"'</a>. <br/><br/> \
-          **Modified pages are -** <br /><a href='"$updatedFilesList"' target='_blank'>'"$updatedFilesList"'</a> <br/> \
-          **Modified sections are -** <br /><a href='"$updatedSectionsList"' target='_blank'>'"$updatedSectionsList"'</a> "
+          prCommentData = "Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - <a href='"$siteUrl"' target='_blank'>'"$siteUrl"'</a>. <br/><br/> **Modified pages are -** <br /><a href='"$updatedFilesList"' target='_blank'>'"$updatedFilesList"'</a> <br/> **Modified sections are -** <br /><a href='"$updatedSectionsList"' target='_blank'>'"$updatedSectionsList"'</a> "
           
           curl \
              -X POST \
