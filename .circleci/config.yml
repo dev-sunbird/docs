@@ -22,39 +22,39 @@ jobs:
         name: Build Commands
         command: |
           # Set Variables 
-          # export repo-site="dev-sunbird/dev-sunbird.github.io"
-          # export repo-docs="dev-sunbird/docs"
-          # export qa-url="qadocs.sunbird.org"
-          # export s3-bucket="sunbird-trial"
-          # export s3-endpoint=".s3-website.ap-south-1.amazonaws.com"
-          # export subdomain-prefix-docs="pr-docs"
-          # export subdomain-prefix-site="pr-site"
+          # export repoSite="dev-sunbird/dev-sunbird.github.io"
+          # export repoDocs="dev-sunbird/docs"
+          # export qaUrl="qadocs.sunbird.org"
+          # export s3Bucket="sunbird-trial"
+          # export s3Endpoint=".s3-website.ap-south-1.amazonaws.com"
+          # export subdomainPrefixDocs="pr-docs"
+          # export subdomainPrefixSite="pr-site"
           
           # Check if build is triggered by PR or commit by checking $CIRCLE_PR_NUMBER is set. 
           if [[ -z "$CIRCLE_PR_NUMBER" ]]
           then
           # If PR no. is not set then trigger Site's Review build and exit
-          curl -u $cuser: -d build_parameters[CIRCLE_JOB]=review https://circleci.com/api/v1.1/project/github/$repo-site/tree/dev
+          curl -u $cuser: -d build_parameters[CIRCLE_JOB]=review https://circleci.com/api/v1.1/project/github/$repoSite/tree/dev
           else
           # Fetch PR Data
-          prdata=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repo-docs/pulls/$CIRCLE_PR_NUMBER)
+          prData=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repoDocs/pulls/$CIRCLE_PR_NUMBER)
           # Fetch Branch Name on which PR is sent.
-          branchname=$(echo "${prdata}" | jq '.base.ref')
-          branchname=${branchname//\"/}
-          echo "Branch Name is " $branchname
+          branchName=$(echo "${prData}" | jq '.base.ref')
+          branchName=${branchName//\"/}
+          echo "Branch Name is " $branchName
           rm -rf site/
           cd ..
           # Clone Site Code
-          git clone git@github.com:$repo-site.git site
+          git clone git@github.com:$repoSite.git site
           cd site
           # Fetch All braches / versions from docs repo
           chmod +x fetch.sh
           ./fetch.sh
           # Replace pr-sent-branch folder with the pr-sent-data
-          rm -rf docs/$branchname
-          mkdir docs/$branchname
-          cp -a ../prdata/. docs/$branchname
-          rm -rf docs/$branchname/.git
+          rm -rf docs/$branchName
+          mkdir docs/$branchName
+          cp -a ../prdata/. docs/$branchName
+          rm -rf docs/$branchName/.git
           # Merge Versions Info Yaml file
           chmod +x version.sh
           ./version.sh
@@ -65,55 +65,55 @@ jobs:
           bundle exec jekyll build
           cd _site
           # Push generated site to s3-bucket
-          aws s3 sync --delete --quiet . s3://$s3-bucket/pr-docs/$CIRCLE_PR_NUMBER
+          aws s3 sync --delete --quiet . s3://$s3Bucket/$subdomainPrefixDocs/$CIRCLE_PR_NUMBER
           # Add comment in pr - details about generated site url and modified pages
-          username=$(echo "${prdata}" | jq '.user.login')
-          contributor=${username//\"/} 
+          userName=$(echo "${prData}" | jq '.user.login')
+          contributor=${userName//\"/} 
           # Get updated files list from pr api
-          updatedfiles=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repo-docs/pulls/$CIRCLE_PR_NUMBER/files)
+          updatedFiles=$(curl -X GET -u $guser:x-oauth-basic https://api.github.com/repos/$repoDocs/pulls/$CIRCLE_PR_NUMBER/files)
           # Initilize blank variables
-          updatedfileslist=''
-          updatedsectionslist=''
+          updatedFilesList=''
+          updatedSectionsList=''
           # Site URL
-          site-url="http://"$subdomain-prefix-docs"-"$CIRCLE_PR_NUMBER"."$qa-url
-          for row in $(echo "${updatedfiles}" | jq -r '.[] | @base64')
+          siteUrl="http://"$subdomainPrefixDocs"-"$CIRCLE_PR_NUMBER"."$qaUrl
+          for row in $(echo "${updatedFiles}" | jq -r '.[] | @base64')
            do  
             _jq() 
             {
              echo ${row} | base64 --decode | jq -r ${1}
             }
-            file=$(_jq '.filename')
+            file=$(_jq '.fileName')
             echo $file
             
             # Make pages from all folders with extension md file except ingredients
             if [[ "$file" != ingredients/* ]] && [[ "$file" == *.md ]]
             then
             # Remove .md and index from filename 
-            filedocs=${file//\.md/}
-            filedocs=${filedocs//index/}
-            url='- '$site-url'./docs/'$branchname'/'$filedocs' <br /> '
-            updatedfileslist=$updatedfileslist$url
+            fileDocs=${file//\.md/}
+            fileDocs=${fileDocs//index/}
+            url='- '$siteUrl'./docs/'$branchName'/'$fileDocs' <br /> '
+            updatedFilesList=$updatedFilesList$url
             echo $url
             fi
             
             # If API Swagger specification is modified
             if [[ "$file" == apis/* ]] && [[ "$file" == *.yaml ]]
             then
-            filelastsegment=${file##*/}
-            echo $filelastsegment
-            fileapi=${filelastsegment//.yaml/}
-            url='- '$site-url'/docs/'$branchname'/apis/specs/?api='$fileapi' <br /> '
-            updatedfileslist=$updatedfileslist$url
+            fileLastSegment=${file##*/}
+            echo $fileLastSegment
+            fileApi=${fileLastSegment//.yaml/}
+            url='- '$siteUrl'/docs/'$branchName'/apis/specs/?api='$fileApi' <br /> '
+            updatedFilesList=$updatedFilesList$url
             echo $url
             fi
             
             if [[ "$file" == apis/* ]] && [[ "$file" == *.html ]]
             then
-            filedocs=${file//\.html/}
-            filedocs=${filedocs//index/}
-            echo $filelastsegment
-            url='- '$site-url'/docs/'$branchname'/apis/specs/ <br /> '
-            updatedfileslist=$updatedfileslist$url
+            fileDocs=${file//\.html/}
+            fileDocs=${fileDocs//index/}
+            echo $fileLastSegment
+            url='- '$siteUrl'/docs/'$branchName'/apis/specs/ <br /> '
+            updatedFilesList=$updatedFilesList$url
             echo $url
             fi
             
@@ -121,24 +121,24 @@ jobs:
             if [[ "$file" == version.yaml ]]
             then
             url='- Sidebar on Docs Pages'
-            updatedsectionslist=$updatedsectionslist$url
+            updatedSectionsList=$updatedSectionsList$url
             fi
             
           done 
           
           # PR Comment Data
           
-          prcommentdata = "Hello @'"$contributor"',<br/><br/> \
+          prCommentData = "Hello @'"$contributor"',<br/><br/> \
           _This is a auto-generated response._ <br/><br/> \
-          Click the URL for review pull request - <a href='"$site-url"' target='_blank'>'"$site-url"'</a>. <br/><br/> \
-          **Modified pages are -** <br /><a href='"$updatedfileslist"' target='_blank'>'"$updatedfileslist"'</a> <br/> \
-          **Modified sections are -** <br /><a href='"$updatedsectionslist"' target='_blank'>'"$updatedsectionslist"'</a> "
+          Click the URL for review pull request - <a href='"$siteUrl"' target='_blank'>'"$siteUrl"'</a>. <br/><br/> \
+          **Modified pages are -** <br /><a href='"$updatedFilesList"' target='_blank'>'"$updatedFilesList"'</a> <br/> \
+          **Modified sections are -** <br /><a href='"$updatedSectionsList"' target='_blank'>'"$updatedSectionsList"'</a> "
           
           curl \
              -X POST \
              -u $guser:x-oauth-basic \
-             -d '{"body": "$prcommentdata" }' \
-              https://api.github.com/repos/$repo-docs/issues/$CIRCLE_PR_NUMBER/comments
+             -d '{"body": "$prCommentData" }' \
+              https://api.github.com/repos/$repoDocs/issues/$CIRCLE_PR_NUMBER/comments
           fi
 workflows:
   version: 2
