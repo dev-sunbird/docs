@@ -83,7 +83,7 @@ jobs:
             # Remove .md and index from filename 
             fileDocs=${file//\.md/}
             fileDocs=${fileDocs//index/}
-            url=$siteUrl'/docs/'$branchName'/'$fileDocs
+            url=' -'$siteUrl'/docs/'$branchName'/'$fileDocs' <br />'
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
@@ -94,7 +94,7 @@ jobs:
             fileLastSegment=${file##*/}
             echo $fileLastSegment
             fileApi=${fileLastSegment//.yaml/}
-            url=$siteUrl'/docs/'$branchName'/apis/specs/?api='$fileApi
+            url=' -'$siteUrl'/docs/'$branchName'/apis/specs/?api='$fileApi' <br />'
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
@@ -104,7 +104,7 @@ jobs:
             fileDocs=${file//\.html/}
             fileDocs=${fileDocs//index/}
             echo $fileLastSegment
-            url=$siteUrl'/docs/'$branchName'/apis/specs/'
+            url=' -'$siteUrl'/docs/'$branchName'/apis/specs/ <br />'
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
