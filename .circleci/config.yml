@@ -86,7 +86,7 @@ jobs:
             url=$siteUrl'/docs/'$branchName'/'$fileDocs
             tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
             updatedFilesList=$updatedFilesList$tagUrl
-            echo $url
+            echo $tagUrl
             fi
             
             # If API Swagger specification is modified
@@ -98,7 +98,7 @@ jobs:
             url=$siteUrl'/docs/'$branchName'/apis/specs/?api='$fileApi
             tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
             updatedFilesList=$updatedFilesList$tagUrl
-            echo $url
+            echo $tagUrl
             fi
             
             if [[ "$file" == apis/* ]] && [[ "$file" == *.html ]]
@@ -109,7 +109,7 @@ jobs:
             url=$siteUrl'/docs/'$branchName'/apis/specs/'
             tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
             updatedFilesList=$updatedFilesList$tagUrl
-            echo $url
+            echo $tagUrl
             fi
             
             # If Sidebar is updated
