@@ -125,7 +125,7 @@ jobs:
           curl \
              -X POST \
              -u $guser:x-oauth-basic \
-             -d '{"body": "$prCommentData" }' \
+             -d '{"body": $prCommentData }' \
               https://api.github.com/repos/$repoDocs/issues/$CIRCLE_PR_NUMBER/comments
           fi
 workflows:
