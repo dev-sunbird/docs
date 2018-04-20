@@ -83,8 +83,9 @@ jobs:
             # Remove .md and index from filename 
             fileDocs=${file//\.md/}
             fileDocs=${fileDocs//index/}
-            url='- '$siteUrl'/docs/'$branchName'/'$fileDocs' <br /> '
-            updatedFilesList=$updatedFilesList$url
+            url=$siteUrl'/docs/'$branchName'/'$fileDocs
+            tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
+            updatedFilesList=$updatedFilesList$tagUrl
             echo $url
             fi
             
@@ -94,8 +95,9 @@ jobs:
             fileLastSegment=${file##*/}
             echo $fileLastSegment
             fileApi=${fileLastSegment//.yaml/}
-            url='- '$siteUrl'/docs/'$branchName'/apis/specs/?api='$fileApi' <br /> '
-            updatedFilesList=$updatedFilesList$url
+            url=$siteUrl'/docs/'$branchName'/apis/specs/?api='$fileApi
+            tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
+            updatedFilesList=$updatedFilesList$tagUrl
             echo $url
             fi
             
@@ -104,28 +106,32 @@ jobs:
             fileDocs=${file//\.html/}
             fileDocs=${fileDocs//index/}
             echo $fileLastSegment
-            url='- '$siteUrl'/docs/'$branchName'/apis/specs/ <br /> '
-            updatedFilesList=$updatedFilesList$url
+            url=$siteUrl'/docs/'$branchName'/apis/specs/'
+            tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
+            updatedFilesList=$updatedFilesList$tagUrl
             echo $url
             fi
             
             # If Sidebar is updated
             if [[ "$file" == version.yaml ]]
             then
-            url='- Sidebar on Docs Pages'
-            updatedSectionsList=$updatedSectionsList$url
+            block='- Sidebar on Docs Pages'
+            updatedSectionsList=$updatedSectionsList$block
             fi
             
           done 
           
-          # PR Comment Data
-          
-          #prCommentData="Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - <a href='"$siteUrl"' target='_blank'>'"$siteUrl"'</a>. <br/><br/> **Modified pages are -** <br /><a href='"$updatedFilesList"' target='_blank'>'"$updatedFilesList"'</a> <br/> **Modified sections are -** <br /><a href='"$updatedSectionsList"' target='_blank'>'"$updatedSectionsList"'</a> "
-          
+          # PR Comment Data 
           curl \
              -X POST \
              -u $guser:x-oauth-basic \
-             -d '{"body": "Hello @'"$contributor"',<br/><br/> _This is a auto-generated response._ <br/><br/> Click the URL for review pull request - <a href='"$siteUrl"' target='_blank'>'"$siteUrl"'</a>. <br/><br/> **Modified pages are -** <br /><a href='"$updatedFilesList"' target='_blank'>'"$updatedFilesList"'</a> <br/> **Modified sections are -** <br />$updatedSectionsList" }' \
+             -d '{"body": "Hello @'"$contributor"',<br/><br/> \
+                          _This is a auto-generated response._ <br/><br/> \
+                          Click the URL for review pull request - \
+                          <a href='"$siteUrl"' target='_blank'>'"$siteUrl"'</a>. <br/><br/> \
+                          **Modified Pages are -** <br /> $updatedFilesList <br/> \
+                          **Modified Sections are -** <br /> $updatedSectionsList" 
+                }' \
               https://api.github.com/repos/$repoDocs/issues/$CIRCLE_PR_NUMBER/comments
           fi
 workflows:
