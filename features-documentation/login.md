@@ -21,7 +21,7 @@ Successful sign up on the portal is notified to the user via an auto-generated e
 	</tr>
 	<tr>
 	<td>User credentials, i.e, user ID and password are shared in this mail. The user can reset these details on consecutive login to the portal</td> 
-	<td><img src="pages/features-documentation/images/welcomemessage.png"></td>
+	<td><img src="images/welcomemessage.png"></td>
 	</tr>
 	</table>
 	
@@ -42,7 +42,7 @@ Once the users have received their credentials, logging in to the portal is a se
          <li>Click <b>Login</b></li>
 	</ol>
     </td>
-	<td><img src="pages/features-documentation/images/loginwithphone.png"></td>
+	<td><img src="images/loginwithphone.png"></td>
     </tr>
 </table>
     
@@ -55,7 +55,7 @@ Once the users have received their credentials, logging in to the portal is a se
   </tr>
   <tr>
    <td>1. Enter your username or email or phone number <br>2. Click <b>Forgot Password?</b></td>
-	<td><img src="pages/features-documentation/images/forgotpassword.png"></td>
+	<td><img src="images/forgotpassword.png"></td>
     </tr>
     </table>
     
@@ -68,15 +68,15 @@ Once the users have received their credentials, logging in to the portal is a se
   </tr>
   <tr>
     <td>1. Enter your registered <b>Email ID</b> <br>2. Click <b>Submit</b></td> 
-    <td><img src="pages/features-documentation/images/forgotpassword1.png"></td>
+    <td><img src="images/forgotpassword1.png"></td>
   </tr>
   <tr>
     <td>1. You will receive an email to reset your password <br>2. Click the <b>Link</b> in the email to reset credentials</td>
-    <td><img src="pages/features-documentation/images/emaillink.png"></td>
+    <td><img src="images/emaillink.png"></td>
   </tr>
   <tr>
     <td>1. The Login page is displayed <br>2. Enter <b>Email ID</b> <br>3. Enter new <b>Password</b> of your choice <br>4. Click <b>Login</b></td>
-    <td><img src="pages/features-documentation/images/loginemail.png"></td>
+    <td><img src="images/loginemail.png"></td>
   </tr>
   </table>
   
@@ -89,15 +89,15 @@ Once the users have received their credentials, logging in to the portal is a se
   </tr>
   <tr>  
     <td>1. Enter your registered <strong>Phone Number</strong> <br>2. Click <strong>Submit</strong></td> 
-    <td><img src="pages/features-documentation/images/forgotpassword1.png"></td>
+    <td><img src="images/forgotpassword1.png"></td>
   </tr>
   <tr>
     <td>1. You will receive a <b>One Time Password (OTP</b> on your registered phone number</td>
-    <td><img src="pages/features-documentation/images/mobileotp.png"></td>
+    <td><img src="images/mobileotp.png"></td>
   </tr>
   <tr>
     <td>1. Enter the <b>OTP</b> code sent to your mobile device <br>2. Click <b>Login</b></td>
-    <td><img src="pages/features-documentation/images/otpcode.png"></td>
+    <td><img src="images/otpcode.png"></td>
   </tr>
 </table>
 	  
