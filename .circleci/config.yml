@@ -84,9 +84,8 @@ jobs:
             fileDocs=${file//\.md/}
             fileDocs=${fileDocs//index/}
             url=$siteUrl'/docs/'$branchName'/'$fileDocs
-            tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
-            updatedFilesList=$updatedFilesList$tagUrl
-            echo $tagUrl
+            updatedFilesList=$updatedFilesList$url
+            echo $url
             fi
             
             # If API Swagger specification is modified
@@ -96,9 +95,8 @@ jobs:
             echo $fileLastSegment
             fileApi=${fileLastSegment//.yaml/}
             url=$siteUrl'/docs/'$branchName'/apis/specs/?api='$fileApi
-            tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
-            updatedFilesList=$updatedFilesList$tagUrl
-            echo $tagUrl
+            updatedFilesList=$updatedFilesList$url
+            echo $url
             fi
             
             if [[ "$file" == apis/* ]] && [[ "$file" == *.html ]]
@@ -107,9 +105,8 @@ jobs:
             fileDocs=${fileDocs//index/}
             echo $fileLastSegment
             url=$siteUrl'/docs/'$branchName'/apis/specs/'
-            tagUrl='- <a href="'$url'" target="_blank">'$url'</a></br/>'
-            updatedFilesList=$updatedFilesList$tagUrl
-            echo $tagUrl
+            updatedFilesList=$updatedFilesList$url
+            echo $url
             fi
             
             # If Sidebar is updated
