@@ -12,4 +12,3 @@ Professional Development  |Professional development is learning or honing one's 
 Publish |The function of making any file available to anyone who visits the portal. One can publish content authored by them, or publish any content that they have uploaded.  |On Sunbird, any content is published after they are reviewed for approval.
 Puzzle  |An activity on any particular topic/unit aimed at increasing a learner's cognition.  |   
  
-

@@ -7,7 +7,7 @@ description: Instructional guide on assigning the user roles
 published: true
 allowSearch: true
 ---
- 
+
 One of the many responsibilities of the organization administrator on Sunbird is to assign roles and responsibilities to users within an organization. The administrator can assign more than one role to a user.
 
 ## Prerequisites

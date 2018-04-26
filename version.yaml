@@ -5,15 +5,18 @@
   - name: 'Developer Docs'
     url: 'developer-docs'
     img: '/img/docs_images/developer-docs.png'
-  - name: 'Product Features '
+  - name: 'Product Features'
     url: 'features-documentation'
     img: '/img/docs_images/product-features.png'
   - name: 'Sunbird REST APIs '
     url: 'apis'
     img: '/img/docs_images/rest-apis.png'
-  - name: 'Frequently asked questions '
+  - name: 'Frequently asked questions'
     url: 'faqs'
     img: '/img/docs_images/faqs.png'
+  - name: 'User Task Flow'
+    url: 'usertaskflow'
+    img: '/img/docs_images/user-task-flow.png'
   sidebar:
       - title: Architecture
         url: architecture/
@@ -70,6 +73,15 @@
                  url: features-documentation/course_batches/
                - page: Course Consumption
                  url: features-documentation/course_consumption/
+          - page: Badging Framework
+            url: features-documentation/badging_framework/badging_overview/
+            subfolderitems:
+               - page: Creating Badges
+                 url: features-documentation/badging_framework/creating_badges/
+               - page: Issuing Badges to Users
+                 url: features-documentation/badging_framework/badges_users/
+               - page: Issuing Badges for Content
+                 url: features-documentation/badging_framework/content_badges/
           - page: Announcement
             url: features-documentation/announcement/
           - page: Library
@@ -84,34 +96,68 @@
                - page: Intellectual Property
                  url: features-documentation/intellectualproperty/
           - page: Collaboration and Partnership
-            url: features-documentation/collaborationpartnership/ 
+            url: features-documentation/collaborationpartnership/
+          - page: Mobile App Features
+            url: features-documentation/mobileapp/allappfeatures/
+      - title: User Task Flows
+        url: usertaskflow/
+        subfolderitems:
+          - page: How do I Create Content
+            url: usertaskflow/how_do_i_create_content/
+          - page: How do I Add a Video
+            url: usertaskflow/how_do_i_add_video/
+          - page: How do I Add Text
+            url: usertaskflow/how_do_i_add_text/
+          - page: How do I Add Audio
+            url: usertaskflow/how_do_i_add_audio/
+          - page: How do I Add a Hotspot
+            url: usertaskflow/how_do_i_add_hotspot/
+          - page: How do I Add an Image
+            url: usertaskflow/how_do_i_add_image/
+          - page: How do I Add Shapes
+            url: usertaskflow/how_do_i_add_shape/
+          - page: How do I Add the Scribblepad
+            url: usertaskflow/how_do_i_add_scribblepad/
+          - page: How do I Add an Activity
+            url: usertaskflow/how_do_i_add_activity/
+          - page: How do I Create a Course
+            url: usertaskflow/how_do_i_create_course/
+          - page: How do I Create a Book
+            url: usertaskflow/how_do_i_create_book/
+          - page: How do I Add DIAL Codes to a Book
+            url: usertaskflow/how_do_i_create_book_with_dial_code/
+          - page: How do I Create a Lesson Plan
+            url: usertaskflow/how_do_i_create_lessonplan/
+          - page: How do I Create a Collection
+            url: usertaskflow/how_do_i_create_collection/
+          - page: How do I Review Content
+            url: usertaskflow/reviewer_taskflow/
+          - page: How do I Upload Content
+            url: usertaskflow/how_do_i_uploadcontent/
+          - page: How do I Delete Content
+            url: usertaskflow/how_do_i_delete_content/
+          - page: How do I Add Metadata
+            url: usertaskflow/how_do_i_add_metadata/
+          - page: How do I Add Resource
+            url: usertaskflow/how_do_i_add_resource/
+          - page: How do I Share Content to a Limited Group
+            url: usertaskflow/limited_sharing/
       - title: Developer Documentation
         url: developer-docs/
         subfolderitems:
           - page: Getting Started with Sunbird
             url: developer-docs/getting_started/
-          - page: Installation Overview
+          - page: Installation
             url: developer-docs/installation/
-          - page: Install Sunbird on your Machine
-            url: developer-docs/installation/installing_sunbirdon_machine/
-          - page: Medium Scale Deployment
-            url: developer-docs/installation/medium_scale_deploy/
             subfolderitems:
-             - page: Provisioning Servers
-               url: developer-docs/installation/provisioning_servers/
-             - page: Setup Databases
-               url: developer-docs/installation/setup_db/
-             - page: Deploying Sunbird Services
-               url: developer-docs/installation/deploy_sb_services/
-               subfolderitems:
-                 - page: Configure Keycloak
-                   url: developer-docs/installation/keycloak_realm_configuration/
-             - page: Installing Sunbird Backend
-               url: developer-docs/installation/install_sbbackend/
-             - page: Customizing Assets
-               url: developer-docs/installation/cust_sunbird/
-             - page: Check Installation
-               url: developer-docs/installation/check_installation/
+             - page: Developer Installation
+               url: developer-docs/installation/installing_sunbirdon_machine/
+             - page: Server Installation
+               url: developer-docs/installation/medium_scale_deploy/
+             - page: Mobile App Installation
+               url: developer-docs/installation/install_mobile_setup/
+             - page: Upgrading Sunbird
+               url: developer-docs/upgrading/
           - page: Onboarding
             url: developer-docs/onboarding/
             subfolderitems:
@@ -124,27 +170,10 @@
                     url: developer-docs/singlesignon/procedure_sso/
                   - page: Creating Organizations and Users
                     url: developer-docs/singlesignon/org_user_creation_sso/
-                  - page: Common errors and solutions
-                    url: developer-docs/singlesignon/commonerrors_sso/
               - page: Configuring for Announcements
                 url: developer-docs/configuring_announcement/
-          - page: Upgrading
-            url: developer-docs/upgrading/
-          - page: Mobile App Installation
-            url: developer-docs/installation/install_mobile_setup/
-          - page: API Reference Documentation
-            url: apis/
-            subfolderitems:
-             - page: Feature
-               url: apis/#feature
-             - page: Administration
-               url: apis/#admin-apis
-             - page: Setup
-               url: apis/#setup-apis
-             - page: Data
-               url: apis/#data-apis
           - page: Telemetry
-            url: developer-docs/telemetry/overview
+            url: developer-docs/telemetry/overview/
             subfolderitems:
              - page: Telemetry Specifications
                url: developer-docs/telemetry/specification/
@@ -170,6 +199,26 @@
                url: developer-docs/telemetry/authtokengenerator_jslibrary/
           - page: Troubleshooting
             url: developer-docs/troubleshooting/
+          - page: API Reference Documentation
+            url: apis/
+            subfolderitems:
+             - page: Feature
+               url: apis/#feature
+             - page: Administration
+               url: apis/#admin-apis
+             - page: Setup
+               url: apis/#setup-apis
+             - page: Data
+               url: apis/#data-apis
+          - page: Extensible Framework
+            url: extensible-framework/
+            subfolderitems:
+             - page: Content Editor Framework
+               url: extensible-framework/content-editor/framework/
+             - page: Content Editor Plugin
+               url: extensible-framework/content-editor/plugins/
+             - page: Content Renderer
+               url: extensible-framework/content-renderer/
       - title: Contribute to Sunbird
         url: /docs/contributions/
         type: absolute
@@ -212,4 +261,4 @@
           - page: Users Rights and Permission
             url: faqs/user_rightspermissions/
       - title: Glossary
-        url: glossary/ 
+        url: glossary/
