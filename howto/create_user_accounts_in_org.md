@@ -25,5 +25,3 @@ allowSearch: true
 
 
 ## Related Topics
-
-
