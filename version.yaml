@@ -199,17 +199,6 @@
                url: developer-docs/telemetry/authtokengenerator_jslibrary/
           - page: Troubleshooting
             url: developer-docs/troubleshooting/
-          - page: API Reference Documentation
-            url: apis/
-            subfolderitems:
-             - page: Feature
-               url: apis/#feature
-             - page: Administration
-               url: apis/#admin-apis
-             - page: Setup
-               url: apis/#setup-apis
-             - page: Data
-               url: apis/#data-apis
           - page: Extensible Framework
             url: extensible-framework/
             subfolderitems:
@@ -219,6 +208,17 @@
                url: extensible-framework/content-editor/plugins/
              - page: Content Renderer
                url: extensible-framework/content-renderer/
+      - title: API Reference Documentation
+        url: apis/
+        subfolderitems:
+          - page: Feature
+            url: apis/#feature
+          - page: Administration
+            url: apis/#admin-apis
+          - page: Setup
+            url: apis/#setup-apis
+          - page: Data
+            url: apis/#data-apis
       - title: Contribute to Sunbird
         url: /docs/contributions/
         type: absolute
