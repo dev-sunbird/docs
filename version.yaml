@@ -204,10 +204,13 @@
             subfolderitems:
              - page: Content Editor Framework
                url: extensible-framework/content-editor/framework/
+               target: blank
              - page: Content Editor Plugin
                url: extensible-framework/content-editor/plugins/
+               target: blank
              - page: Content Renderer
                url: extensible-framework/content-renderer/
+               target: blank
       - title: API Reference Documentation
         url: apis/
         subfolderitems:

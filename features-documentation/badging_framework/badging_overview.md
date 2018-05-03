@@ -20,7 +20,7 @@ Badges are awarded to people to recognize their skills or accomplishments. They 
 Organizations can assign badges to users who:
 <br>1. Complete prescribed courses <br>2. Use Sunbird in classrooms for the prescribed or greater duration <br>3. Create content that is highly consumed <br>4. Recieve awards and certificates offline
 
-**Note** For details on how to issue badges to users, refer [Issuing Badges to Users](features-documentation/badging_framework/badges_users/#Issuing-Badges-to-Users)
+**Note** For details on how to issue badges to users, refer [Issuing Badges to Users](../badges_users/#Issuing-Badges-to-Users)
 
 ### Badges for Content
 Organizations assign badges to content to:

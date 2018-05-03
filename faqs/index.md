@@ -16,4 +16,4 @@ This section answers questions raised by users. The section is further categoriz
 
 If you have questions that are not answered, you can click on the links at the top or bottom of the page to edit it or report an issue. 
 
-  Refer to the [Contribution Guidelines](contributions/contribution_guidelines){:target="_blank"} to understand the contribution guidelines.  
+  Refer to the [Contribution Guidelines](../../contributions/contribution_guidelines){:target="_blank"} to understand the contribution guidelines.  

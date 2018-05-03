@@ -1,4 +1,5 @@
 ---
+layout: default
 ---
 <!DOCTYPE html>
 <html>
@@ -13,7 +14,7 @@
 			<div class="container main">
 				<redoc suppress-warnings></redoc>
 				<script>
-					yamlLink = 'apis/testmain/testmain.yaml';
+					yamlLink = 'testmain.yaml';
 					yamlBasedLink = baseURL.href + yamlLink;
 					Redoc.init(yamlBasedLink);
 				</script>

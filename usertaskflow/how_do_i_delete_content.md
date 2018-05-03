@@ -8,4 +8,4 @@ keywords: 'content, delete'
 published: true
 allowSearch: true
 ---
-{% image src='pages/usertaskflow/images/delete_content.svg' full center alt='How Do I Delete Content' zoom %} 
+{% image src='../images/delete_content.svg' full center alt='How Do I Delete Content' zoom %} 
