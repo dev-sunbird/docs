@@ -22,7 +22,7 @@ Book is a collection of content units.	On Sunbird, books can be compiled or cura
     <td>1. You are logged in <br>2. You are currently on <b>My Workspace</b>  
       <br>3. You want to create a book, you have clicked on <b>Book</b> tile
        </td>
-      <td><img src="pages/features-documentation/images/book_workspace.png"></td>
+      <td><img src="../images/book_workspace.png"></td>
   </tr>
   </table>
   
@@ -44,7 +44,7 @@ Book is a collection of content units.	On Sunbird, books can be compiled or cura
       <br>4. Click <b>Start Creating</b> 
       <br><b>Note</b>: These details can be filled later when updating the book details
        </td>
-      <td><img src="pages/features-documentation/images/book/book_createbook.png"></td>
+      <td><img src="../images/book/book_createbook.png"></td>
   </tr>
   </table>
   
@@ -57,7 +57,7 @@ Book is a collection of content units.	On Sunbird, books can be compiled or cura
   </tr>
   <tr>
     <td>1. Click <b>Edit Details</b> to enter the book details 
-    <br>2. Click the camera icon to add an image <br><b>Note</b>: For details, refer <a href="features-documentation/metadata_addingimages" target="_blank">Adding Image to Metadata</a> 
+    <br>2. Click the camera icon to add an image <br><b>Note</b>: For details, refer <a href="../metadata_addingimages" target="_blank">Adding Image to Metadata</a> 
       <br>3. Enter <b>Title</b> of the book 
       <br>4. Enter <b>Description</b> of the book 
       <br>5. Enter <b>Keywords</b>. Keywords are ideas and topics that define content. Keywords aid in searching for content 
@@ -74,7 +74,7 @@ Book is a collection of content units.	On Sunbird, books can be compiled or cura
       <br>11. Click <b>Save</b> on the header to save the details
       <br>12. Click <b>Cancel</b> to go back to the previous screen
     </td>
-    <td><img src="pages/features-documentation/images/book/book_metadata1.png"></td>
+    <td><img src="../images/book/book_metadata1.png"></td>
   </tr>
   </table>
 
@@ -99,12 +99,12 @@ sibling node, refer Exploring TOC Structure
       <br>5. Select the <b>Concepts</b> associated with the heading 
       <br>6. Enter <b>Keywords</b> 
       <br>7. Enter the <b>DIAL code</b>. Using DIAL code link other digital content to the book. The list of DIAL codes associated with the book is provided to you by the organization administrator 
-     <br>8. Click <b>ADD RESOURCE</b> to add content to the headings. For details on adding resources, refer <a href="features-documentation/adding_resources" target="_blank">Adding Resource</a>
+     <br>8. Click <b>ADD RESOURCE</b> to add content to the headings. For details on adding resources, refer <a href="../addingresources" target="_blank">Adding Resource</a>
      </td>
-      <td><img src="pages/features-documentation/images/book/adding_child.png"></td>
+      <td><img src="../images/book/adding_child.png"></td>
   </tr>
   <td>    </td>
-      <td><img src="pages/features-documentation/images/book/heading_metadata.png"></td>
+      <td><img src="../images/book/heading_metadata.png"></td>
   </tr>
   </table>
     
@@ -120,14 +120,14 @@ sibling node, refer Exploring TOC Structure
     <td>Enter the code from the list of DIAL codes that correspond to the book being created.   
       <br>1. On entering the right code for the heading a ✔️ icon is displayed beside the code 
     </td>
-      <td><img src="pages/features-documentation/images/book/dial_code1.png"></td>
+      <td><img src="../images/book/dial_code1.png"></td>
     <td>
   </td>
   </tr>
   <tr>
     <td>2. If the code entered is incorrect, a ❌, icon is displayed beside the code 
       </td>
-      <td><img src="pages/features-documentation/images/book/dial_code2.png"></td> 
+      <td><img src="../images/book/dial_code2.png"></td> 
     <td> </td>
   </tr>
   <tr>
@@ -135,11 +135,12 @@ sibling node, refer Exploring TOC Structure
         <br>&emsp;a. Unlink the DIAL code from the book
         <br>&emsp;b. Link the DIAL code to the book
     </td>
-      <td colspan="2"><img src="pages/features-documentation/images/book/dial_code_un_link.png"></td> 
+      <td colspan="2"><img src="../images/book/dial_code_un_link.png"></td> 
     </tr>
  </table>
 
 #### Adding Resources 
+
 Resources are added to each heading created in the ToC pane. To add resources to headings, you can either: 
 <table> 
   <tr>
@@ -152,14 +153,14 @@ Resources are added to each heading created in the ToC pane. To add resources to
      <br>b. Right-click on the node name and select <b>Add Resource</b>, OR 
      <br>c. Click <b>Add Resources</b> button in the action pane, OR 
      <br>d. Click <b>Add</b> on the resource card on the left pane, OR 
-     <br>e. Use the keyboard shortcut <b>Ctrl+Alt+A</b>. For more details on keyboard shortcuts, refer <a href="features-documentation/keyboardshortcuts" target="_blank">Keyboard Shortcuts</a>
+     <br>e. Use the keyboard shortcut <b>Ctrl+Alt+A</b>. For more details on keyboard shortcuts, refer <a href="../keyboardshortcuts" target="_blank">Keyboard Shortcuts</a>
     </td>
-    <td><img src="pages/features-documentation/images/book/selecting_resource.png"></td>
+    <td><img src="../images/book/selecting_resource.png"></td>
   </tr>
   <tr>
     <td>Hover over the resource card to view concise content details <br>1. Click <b>View Details</b> on the resource card to view all the details, OR <br>2. Click <b>View</b> to view all the details
     </td>
-    <td><img src="pages/features-documentation/images/book/selecting_resource2.png"></td>
+    <td><img src="../images/book/selecting_resource2.png"></td>
   </tr>
   </table>
 
@@ -168,7 +169,7 @@ Resources are added to each heading created in the ToC pane. To add resources to
 The Table of Contents tree seen in the left pane is used to navigate content compiled for a collection, textbook, course or lesson plan. You can manipulate the tree using either: 
 <br>&emsp;a) The burger menu associated with a tree node 
 <br>&emsp;b) Right-click options associated with a tree node, OR 
-<br>&emsp;c) Keyboard shortcuts <br>For details on manipulating the tree and adding content, refer <a href="features-documentation/treestructure_toc" target="_blank">Exploring ToC Structure</a>
+<br>&emsp;c) Keyboard shortcuts <br>For details on manipulating the tree and adding content, refer <a href="../treestructure_toc" target="_blank">Exploring ToC Structure</a>
   
 ### Deleting Content 
 
@@ -181,7 +182,7 @@ The Table of Contents tree seen in the left pane is used to navigate content com
     <td>1. Click <b>Delete</b> icon beside the burger menu <br>2. Click <b>Yes</b> to delete the added content
       <br><b>Note</b>: You can alternatively delete content by clicking <b>Delete</b> in the burger menu drop-down
       </td>
-    <td><img src="pages/features-documentation/images/book/book_unit_delete.png"></td>
+    <td><img src="../images/book/book_unit_delete.png"></td>
   </tr>
 </table>
 
@@ -195,12 +196,12 @@ The Table of Contents tree seen in the left pane is used to navigate content com
   <tr>
     <td>1. Drag and drop the content to the desired position to rearrange  the order of the content added to the textbook  
       </td>
-    <td><img src="pages/features-documentation/images/book/book_drag_content.png"></td>
+    <td><img src="../images/book/book_drag_content.png"></td>
   </tr>
   <tr>
     <td>1. Click the upward arrow to collapse the table of contents. Click the same arrow to expand collapsed table of contents
      </td>
-    <td><img src="pages/features-documentation/images/book/book_toc.png"></td>
+    <td><img src="../images/book/book_toc.png"></td>
   </tr>  
 </table>
 
@@ -215,13 +216,13 @@ A book must be reviewed before it is published.
   </tr>
   <tr>
     <td>1. Click <b>Save</b> on the header to save the book 
-      <br>2. Click <b>Send for review</b> to send the created book for review. Before sending for review, you can share the content to a limited audience. To know more about Limited Sharing, refer <a href="features-documentation/limitedpublishnshare" target="_blank">Limited Publishing and Sharing</a>
+      <br>2. Click <b>Send for review</b> to send the created book for review. Before sending for review, you can share the content to a limited audience. To know more about Limited Sharing, refer <a href="../limitedpublishnshare" target="_blank">Limited Publishing and Sharing</a>
     </td>
-    <td><img src="pages/features-documentation/images/book_sendforreview.png"></td>
+    <td><img src="../images/book_sendforreview.png"></td>
   </tr>    
   </table>
   
-  ### Exploring What's New
+### Exploring What's New
 
 <table>
   <tr>
@@ -233,6 +234,6 @@ A book must be reviewed before it is published.
       <br>1. Click on the <b>What's New</b> icon to view concise information about new product functionality 
       <br><b>Note</b>: The What's New icon is red before you view it for the first time. The icon turns grey after you view the information, until the next product version
     </td>
-    <td><img src="pages/features-documentation/images/book/book_whats_new1.png"></td>
+    <td><img src="../images/book/book_whats_new1.png"></td>
   </tr>
   </table>

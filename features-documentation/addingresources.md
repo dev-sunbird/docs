@@ -30,11 +30,11 @@ Resources are added to each heading created in the ToC pane. To add resources to
      <br>d. Click <b>Add</b> on the resource card on the left pane, OR
      <br>e. Use the keyboard shortcut <b>Ctrl+Alt+A</b>. For more details on keyboard shortcuts, refer Keyboard Shortcuts
     </td>
-    <td><img src="pages/features-documentation/images/announcement/view_dashboard.png"></td>
+    <td><img src="../images/announcement/view_dashboard.png"></td>
   </tr>
   </table>
   
-  ## Adding Resources
+## Adding Resources
   
  <table>
   <tr>
@@ -58,13 +58,13 @@ Resources are added to each heading created in the ToC pane. To add resources to
       <br>7. Click <b>Proceed</b>
       <br>8. Click <b>Back</b> to go back to the previous screen
      </td>
-    <td><img src="pages/features-documentation/images/announcement/view_dashboard.png"></td>
+    <td><img src="../images/announcement/view_dashboard.png"></td>
   </tr>
   </table>
   
-  ## Viewing Selected Resources
+## Viewing Selected Resources
  
- <table>
+  <table>
   <tr>
     <th style="width:35%;">Step</th>
     <th style="width:65%;">Screen</th>
@@ -74,11 +74,12 @@ Resources are added to each heading created in the ToC pane. To add resources to
     <br>1. Click <b>View Details</b> on the resource card to view all the details, OR
     <br>2. Click <b>View</b> to view all the details
     </td>
-    <td><img src="pages/features-documentation/images/announcement/workflow.png"></td>
+    <td><img src="../images/announcement/workflow.png"></td>
     </tr>
   </table>
     
 ## Adding Resources
+
    <table>
   <tr>
     <th style="width:35%;">Step</th>
@@ -93,11 +94,12 @@ Resources are added to each heading created in the ToC pane. To add resources to
        <br>&emsp;b. Click <b>Remove</b> to remove the resource
       <br>5. Click <b>Proceed</b> to add resources to the section. The resource is added to the Resource pane of the node
     </td>
-    <td><img src="pages/features-documentation/images/announcement/workflow.png"></td>
+    <td><img src="../images/announcement/workflow.png"></td>
     </tr>
     </table>
 
 ## Previewing Resources
+
    <table>
   <tr>
     <th style="width:35%;">Step</th>
@@ -116,7 +118,7 @@ Resources are added to each heading created in the ToC pane. To add resources to
     <br>3. Click the link in the breadcrumb to visit the corresponding lesson plan
     <br>3. Click <b>Save</b> to save the changes
  </td>
-    <td><img src="pages/features-documentation/images/announcement/workflow.png"></td>
+    <td><img src="../images/announcement/workflow.png"></td>
     </tr>
     </table>    
   

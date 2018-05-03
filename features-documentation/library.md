@@ -23,7 +23,7 @@ This documentation elaborates the various user interface elements of the Library
   <tr>
     <td>1. You are logged in <br>3. You want to view the Sunbird library, you have clicked on <b>Library</b> tile
        </td>
-      <td><img src="pages/features-documentation/images/library/prerequisite.png"></td>
+      <td><img src="../images/library/prerequisite.png"></td>
   </tr>
   </table>
        
@@ -35,12 +35,12 @@ This documentation elaborates the various user interface elements of the Library
   </tr>
   <tr>
     <td>Search for content using either of the following: <br>&emsp;a)  search bar, or, <br>&emsp;b) filter options, or, <br>&emsp;c) sort options</td> 
-	<td><img src="pages/features-documentation/images/library/search_options.png"></td>  
+	<td><img src="../images/library/search_options.png"></td>  
 	</tr>
 	<tr>
 	<td>1. Select any of the following from the drop-down menu: <br>&emsp;a) <b>All</b>: To search for all content available in the portal <br>&emsp;b) <b>Courses</b>: To search for all the courses available in the portal <br>&emsp;c) <b>Library</b>: To search for content available in the library <br>&emsp;d) <b>Organizations</b>: To search for organizations uploaded in the portal <br>&emsp;e) <b>Users</b>: To search for users uploaded in the portal <br>2. Alternatively, you can type keywords in the search bar
      </td>
-    <td><img src="pages/features-documentation/images/library/searchbar_options.png"></td>
+    <td><img src="../images/library/searchbar_options.png"></td>
   </tr>
   </table>
    
@@ -60,7 +60,7 @@ This documentation elaborates the various user interface elements of the Library
 				<br>&emsp;e) <b>Content Types</b>
 				<br>&emsp;e) <b>Concepts</b>
 	<br>2. Click <b>Apply</b>. The search results are displayed <br>3. Click <b>Reset</b> to reset the filters  </td>
-    <td><img src="pages/features-documentation/images/library/applying_filters.png"></td>
+    <td><img src="../images/library/applying_filters.png"></td>
   </tr>
   </table>
    
@@ -76,7 +76,7 @@ This documentation elaborates the various user interface elements of the Library
 	       <li>Sort content based on latest <strong>Modified</strong> or <strong>Created</strong></li>
 	   </ol>
     </td>
-	<td><img src="pages/features-documentation/images/library_sort.png"></td>
+	<td><img src="../images/library_sort.png"></td>
     </tr>
     </table>
 
@@ -104,7 +104,7 @@ Popular stories are listed here. The different story types displayed are:
 	       <li>Click right or left <strong>Scroll bar</strong> to scroll</li>
 	   </ol>
    </td>
-  <td><img src="pages/features-documentation/images/library_popularstory.png"></td>
+  <td><img src="../images/library_popularstory.png"></td>
   </tr>
   </table>
 
@@ -121,7 +121,7 @@ Popular stories are listed here. The different story types displayed are:
 		   <li>Click on the story you wish to consume. The story is displayed on the inbuilt content player. Description and content information of the story are provided below the player</li>
 	   </ul>
 	</td>
-	<td><img src="pages/features-documentation/images/library_desc_cont_inf.png"></td>
+	<td><img src="../images/library_desc_cont_inf.png"></td>
 	</tr>
 	</table>
 
@@ -138,7 +138,7 @@ Popular stories are listed here. The different story types displayed are:
 	       <li>Click on the <strong>Share</strong> icon to share the story</li>
 	</ol>
    </td>
-  <td><img src="pages/features-documentation/images/library_shareicon.png"></td>
+  <td><img src="../images/library_shareicon.png"></td>
   </tr>
   <tr>
   <td>
@@ -148,7 +148,7 @@ Popular stories are listed here. The different story types displayed are:
 	       <li>Click <strong>Close</strong> icon to go back to the content player</li>
 	</ol>
    </td>
-  <td><img src="pages/features-documentation/images/library_copylink.png"></td>
+  <td><img src="../images/library_copylink.png"></td>
   </tr>
   </table>
   
@@ -165,7 +165,7 @@ Popular stories are listed here. The different story types displayed are:
 		<li>Click <strong>Flag</strong> icon to flag the displayed content</li>
 	    </ol>
 	</td>
-	<td><img src="pages/features-documentation/images/library_flagicon.png"></td>
+	<td><img src="../images/library_flagicon.png"></td>
 	</tr>
 	<tr>
 	<td>
@@ -176,7 +176,7 @@ Popular stories are listed here. The different story types displayed are:
 		<li>Click <strong>Close</strong> icon to exit the page</li>
 	   </ol>
     </td>
- <td><img src="pages/features-documentation/images/library_flagreason.png"></td>
+ <td><img src="../images/library_flagreason.png"></td>
   </tr>
   </table>
   
@@ -193,7 +193,7 @@ Popular stories are listed here. The different story types displayed are:
 		  <li>Click <strong>TAKE NOTE</strong> icon or link to take notes while viewing the story</li>
 	    </ol>
 	</td>
-	<td><img src="pages/features-documentation/images/library_takenote.png"></td>
+	<td><img src="../images/library_takenote.png"></td>
 	  </tr>
 	   <tr>
 	<td>
@@ -206,7 +206,7 @@ Popular stories are listed here. The different story types displayed are:
 			<li>Click <strong>Close</strong> icon to exit the page</li>
 	        </ol>
 	</td>
-	<td><img src="pages/features-documentation/images/library_notescreen.png"></td>
+	<td><img src="../images/library_notescreen.png"></td>
 	</tr>
   </table>
 
