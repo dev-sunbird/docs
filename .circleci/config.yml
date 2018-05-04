@@ -96,8 +96,8 @@ jobs:
             then
             fileDocs=${file//\.html/}
             fileDocs=${fileDocs//index/}
-            echo $fileLastSegment
-            url=" - "$siteUrl"/docs/"$branchName"/apis/ <br />"
+            echo $fileDocs
+            url=" - "$siteUrl"/docs/"$branchName"/apis/"$fileDocs" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
