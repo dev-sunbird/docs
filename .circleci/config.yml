@@ -85,8 +85,9 @@ jobs:
             if [[ "$file" == apis/* ]] && [[ "$file" == *.yaml ]]
             then
             fileLastSegment=${file##*/}
-            echo $fileLastSegment
-            fileApi=${fileLastSegment//.yaml/}
+            echo "Updated YAML File Last Segment is -" $fileLastSegment
+            fileApi=${fileLastSegment//.yaml/} 
+            echo "Updated YAML File Path is -" $fileLastSegment
             url=" - "$siteUrl"/docs/"$branchName"/apis/"$fileApi" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
@@ -96,7 +97,7 @@ jobs:
             then
             fileDocs=${file//\.html/}
             fileDocs=${fileDocs//index/}
-            echo $fileDocs
+            echo "Updated Index.html file is - " $fileDocs
             url=" - "$siteUrl"/docs/"$branchName"/apis/"$fileDocs" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
