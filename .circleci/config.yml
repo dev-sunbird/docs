@@ -87,7 +87,7 @@ jobs:
             fileLastSegment=${file##*/}
             echo $fileLastSegment
             fileApi=${fileLastSegment//.yaml/}
-            url=" - "$siteUrl"/docs/"$branchName"/apis/$fileApi" <br />"
+            url=" - "$siteUrl"/docs/"$branchName"/apis/"$fileApi" <br />"
             updatedFilesList=$updatedFilesList$url
             echo $url
             fi
