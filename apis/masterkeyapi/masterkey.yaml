@@ -12,7 +12,7 @@ info:
     url: 'https://github.com/project-sunbird/sunbird-commons/blob/master/LICENSE'
 host: staging.open-sunbird.org
 basePath: /data/v1/client
-securityDefinitions:
+securityDefinitions: 
     auth:
       type: apiKey  # arbitrary name for the security scheme
       in: header # The security scheme parameter is in "header"
