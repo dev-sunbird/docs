@@ -19,7 +19,7 @@ It follows the design principles that maximizes on:
 - Scalability
 - Availability
 - Interoperability and rationalization
-
+ 
 ## Architectural Design Principles
 
 - **Avoid Duplication of Effort via Shared Infrastructure**
